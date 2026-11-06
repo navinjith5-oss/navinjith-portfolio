@@ -12,6 +12,7 @@ def test_pdf():
     assert "Aspiring" not in text, "FAIL: Found 'Aspiring' in PDF text!"
     assert "EC-Council Certified SOC Analyst" in text, "FAIL: Missing CSA certification"
     assert "Earned Industry Credential" not in text, "FAIL: Found unwanted 'Earned' tag in PDF text"
+    assert "The Joy of Computing Using Python" in text, "FAIL: Missing NPTEL Python certification in PDF"
     assert "SecureLoop AI" in text, "FAIL: Missing SecureLoop AI"
     assert "https://github.com/navinjith5-oss/secureloop-ai1" in text, "FAIL: Missing GitHub URL"
     assert "RedTeam Hacker Academy" in text, "FAIL: Missing internship company"
@@ -31,6 +32,7 @@ def test_docx():
     
     assert "Aspiring" not in full_text, "FAIL: Found 'Aspiring' in DOCX text!"
     assert "EC-Council Certified SOC Analyst" in full_text, "FAIL: Missing CSA certification in DOCX"
+    assert "The Joy of Computing Using Python" in full_text, "FAIL: Missing NPTEL Python certification in DOCX"
     assert "SecureLoop AI" in full_text, "FAIL: Missing SecureLoop AI in DOCX"
     assert "navinjith5@gmail.com" in full_text, "FAIL: Missing email in DOCX"
     assert "https://github.com/navinjith5-oss/secureloop-ai1" in full_text, "FAIL: Missing GitHub URL in DOCX"

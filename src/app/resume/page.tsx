@@ -121,6 +121,9 @@ export default function ResumePage() {
             <li>
               <strong>IBM Advanced Cybersecurity Certificate</strong> &ndash; IBM
             </li>
+            <li>
+              <strong>The Joy of Computing Using Python (Elite + Silver, 75%)</strong> &ndash; NPTEL (IIT Ropar)
+            </li>
           </ul>
         </section>
 

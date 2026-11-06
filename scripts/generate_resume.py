@@ -142,6 +142,7 @@ def generate_pdf(output_path):
     story.append(Paragraph("&bull; <b>EC-Council Certified SOC Analyst (CSA)</b> &ndash; EC-Council", bullet_style))
     story.append(Paragraph("&bull; <b>Certified IT Infrastructure and Cyber SOC Analyst (CICSA)</b> &ndash; RedTeam Hacker Academy", bullet_style))
     story.append(Paragraph("&bull; <b>IBM Advanced Cybersecurity Certificate</b> &ndash; IBM", bullet_style))
+    story.append(Paragraph("&bull; <b>The Joy of Computing Using Python (Elite + Silver, 75%)</b> &ndash; NPTEL (IIT Ropar)", bullet_style))
 
     # 4. Technical Skills
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e2e8f0'), spaceBefore=4, spaceAfter=4))
@@ -245,7 +246,8 @@ def generate_docx(output_path):
     for cert in [
         ("EC-Council Certified SOC Analyst (CSA)", "EC-Council"),
         ("Certified IT Infrastructure and Cyber SOC Analyst (CICSA)", "RedTeam Hacker Academy"),
-        ("IBM Advanced Cybersecurity Certificate", "IBM")
+        ("IBM Advanced Cybersecurity Certificate", "IBM"),
+        ("The Joy of Computing Using Python (Elite + Silver, 75%)", "NPTEL (IIT Ropar)")
     ]:
         p = doc.add_paragraph(style='List Bullet')
         p.paragraph_format.space_after = Pt(2)

@@ -17,11 +17,18 @@ export interface Certification {
   id: string;
   title: string;
   issuer: string;
+  institution?: string;
   status: "Certified" | "Completed" | "In Progress";
   issueDate?: string;
   credentialUrl?: string;
+  certificateFile?: string;
   featured: boolean;
-  category: "Professional Certification" | "Training" | "Coursework";
+  achievement?: string;
+  score?: string;
+  year?: string;
+  session?: string;
+  category: "Professional Certification" | "Training" | "Coursework" | "Programming" | "Online Certification";
+  certificateType?: string;
   description: string;
   verificationAvailable: boolean;
 }
@@ -156,6 +163,22 @@ export const portfolioData = {
       featured: false,
       category: "Coursework",
       description: "Comprehensive coursework examining enterprise cybersecurity architecture, cyber threat landscapes, defensive controls, and incident handling best practices.",
+      verificationAvailable: false
+    },
+    {
+      id: "nptel-python",
+      title: "The Joy of Computing Using Python",
+      issuer: "NPTEL",
+      institution: "IIT Ropar",
+      status: "Completed",
+      featured: false,
+      achievement: "Elite + Silver",
+      score: "75%",
+      year: "2026",
+      session: "July–October 2026",
+      category: "Programming",
+      certificateType: "NPTEL Online Certification",
+      description: "Earned the NPTEL Elite + Silver certification in The Joy of Computing Using Python with a consolidated score of 75%, demonstrating foundational proficiency in Python programming, computational thinking, and problem-solving.",
       verificationAvailable: false
     }
   ] as Certification[],

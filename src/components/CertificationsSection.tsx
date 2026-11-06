@@ -26,13 +26,15 @@ export default function CertificationsSection() {
         </div>
 
         {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {certifications.map((cert) => (
             <div
               key={cert.id}
               className={`p-6 rounded-xl flex flex-col justify-between transition-all shadow-xl ${
                 cert.featured
                   ? "bg-[#0c1629] border-2 border-cyan-500/50 shadow-[0_0_25px_rgba(6,182,212,0.15)] relative"
+                  : cert.achievement
+                  ? "bg-gradient-to-b from-[#0c1322] to-[#080d1a] border border-slate-700/80 hover:border-slate-300/60 shadow-xl"
                   : "bg-[#0f172a] border border-slate-800 hover:border-slate-700"
               }`}
             >
@@ -43,14 +45,32 @@ export default function CertificationsSection() {
               )}
 
               <div className="space-y-3">
-                <div className="flex items-center justify-between gap-2 pt-1">
-                  <span className="text-xs font-mono text-cyan-400 font-semibold">
-                    {cert.issuer}
-                  </span>
-                  <span className="px-2 py-0.5 rounded text-xs font-mono font-medium bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                    {cert.status}
-                  </span>
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-cyan-400 font-semibold">
+                    <span>{cert.issuer}</span>
+                    {cert.institution && (
+                      <>
+                        <span className="text-slate-600">&bull;</span>
+                        <span className="text-slate-300">{cert.institution}</span>
+                      </>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    {cert.achievement && (
+                      <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-200 border border-slate-300/40 font-bold">
+                        {cert.achievement}
+                      </span>
+                    )}
+                    {cert.score && (
+                      <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-cyan-300 border border-cyan-800/60 font-semibold">
+                        {cert.score}
+                      </span>
+                    )}
+                    <span className="px-2 py-0.5 rounded text-xs font-mono font-medium bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      {cert.status}
+                    </span>
+                  </div>
                 </div>
 
                 <h3 className="text-lg font-bold text-white leading-snug">
