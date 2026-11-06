@@ -28,13 +28,13 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
             <Link href="/" className="hover:text-cyan-400 transition-colors">
-              Overview
+              Home
             </Link>
-            <Link href="/experience" className="hover:text-cyan-400 transition-colors">
-              Experience
+            <Link href="/about" className="hover:text-cyan-400 transition-colors">
+              About Me
             </Link>
-            <Link href="/projects/secureloop-ai" className="hover:text-cyan-400 transition-colors">
-              SecureLoop AI
+            <Link href="/projects" className="hover:text-cyan-400 transition-colors">
+              Projects
             </Link>
             <Link href="/skills" className="hover:text-cyan-400 transition-colors">
               Skills
@@ -45,8 +45,11 @@ export default function Footer() {
             <Link href="/education" className="hover:text-cyan-400 transition-colors">
               Education
             </Link>
+            <Link href="/experience" className="hover:text-cyan-400 transition-colors">
+              Experience
+            </Link>
             <Link href="/resume" className="hover:text-cyan-400 transition-colors">
-              ATS Resume
+              Resume
             </Link>
             <Link href="/contact" className="hover:text-cyan-400 transition-colors">
               Contact

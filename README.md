@@ -1,105 +1,55 @@
-# Navinjith K — Cybersecurity Portfolio & ATS Resume System
+# Navinjith K — Premium Interactive Cybersecurity Portfolio & ATS Resume
 
-A modern, high-performance portfolio and ATS-friendly resume built for **Navinjith K**, **EC-Council Certified SOC Analyst (CSA)**, targeting Tier 1 SOC Analyst and Cybersecurity Analyst opportunities.
+A cinematic, interactive cybersecurity portfolio and ATS-friendly resume for **Navinjith K**, **EC-Council Certified SOC Analyst (CSA)**, targeting Tier 1 SOC Analyst and Cybersecurity Analyst opportunities.
 
 ---
 
-## 🛡️ Key Features
+## 🌟 Key Architecture & Experience
 
-- **Flagship Project — SecureLoop AI**:
-  - Dedicated interactive case study at `/projects/secureloop-ai`
-  - Clear architectural separation between the **Public Scanner Implementation** (FastAPI, Nuclei, JSONL, React, Docker lab management) and the **Separate AI Prototype** (Groq LLM, rule-based CWE matching, PostgreSQL)
-  - Code-supported functionality with direct GitHub deep links to audited files
-  - Transparent limitations and honest future roadmap (labeled as future directions, not achievements)
-- **Earned EC-Council Certified SOC Analyst (CSA)**:
-  - Featured prominently across hero, navigation, experience, credentials, and resume
-  - Completely purged outdated "Aspiring" references
-- **ATS-Optimized Resume Suite**:
-  - Live interactive web resume view at `/resume`
-  - Pixel-perfect, single-column **ATS-tested PDF** (`/public/Navinjith_K_Resume.pdf`)
-  - Genuine **editable DOCX** file (`/public/Navinjith_K_Resume.docx`)
-  - Both generated from a single typed source of truth (`src/data/portfolioData.ts`)
-- **Cybersecurity Dark UI**:
-  - Charcoal/navy palette (`#080c14`, `#0f172a`, `#1e293b`) with restrained cyan/teal accents
-  - Lightweight decorative defensive topology diagram (explicitly labeled decorative)
-  - Accessible focus states, keyboard navigation, and `prefers-reduced-motion` compliance
-  - Interactive navigation console (`Ctrl+K`) for rapid command-line jump navigation
-  - Zero-latency email copy button with visual confirmation
+### 1. Minimalist Cinematic Homepage (`/`)
+- **Uncluttered First Impression**: Features strictly **Navinjith K** in bold typography, headline, mission statement, futuristic orbital cyber telemetry visual (`CyberHeroVisual`), and two primary magnetic buttons:
+  - **"Explore My Work"** &rarr; routes smoothly into `/projects`
+  - **"Download Resume"** &rarr; routes directly into `/resume`
+- **Zero Information Clutter**: No heavy project descriptions, skills walls, or education blocks dumping on the first screen.
+
+### 2. Dedicated Multi-Page Navigation with Framer Motion
+Every section has its own distinctive dedicated page with smooth page entrance animations and sliding navigation indicators:
+- **Home** (`/`): Full-screen cinematic landing experience.
+- **About Me** (`/about`): Narrative journey bridging Cyber Forensics (BCA) and MCA software systems, internship background, and defensive philosophy.
+- **Projects** (`/projects`): Interactive security research gallery with 3D tilt cards featuring **SecureLoop AI**.
+- **Case Study** (`/projects/secureloop-ai`): Substantive deep dive with architecture diagrams, reviewed FastAPI/Nuclei code snippets, Docker lab management, and honest engineering boundaries.
+- **Skills** (`/skills`): Interactive Cybersecurity Skills Dashboard with category tabs and real-time search filtering.
+- **Certifications** (`/certifications`): Interactive gallery with click-to-open modal detailing syllabus domains for EC-Council CSA, CICSA, and IBM certs.
+- **Education** (`/education`): Interactive timeline of Cyber Forensics (Yenepoya University) and MCA (Adi Shankara Institute).
+- **Experience** (`/experience`): Interactive timeline detailing the 8-month internship at RedTeam Hacker Academy, daily triage workflows, and SIEM tools.
+- **Resume** (`/resume`): ATS-tested single-column resume viewer with direct PDF and DOCX downloads.
+- **Contact** (`/contact`): Minimal, premium channels with one-click email copying and direct LinkedIn/GitHub links.
+
+### 3. Motion & Microinteractions
+- **Page Transitions**: Framer Motion smooth entrance glide.
+- **Active Navigation Pill**: Slides behind the active route in the floating glassmorphic navbar.
+- **3D Tilt Cards**: Spring-physics perspective shifts on hover (`TiltCard`).
+- **Magnetic Buttons**: Spring-loaded cursor magnetic effect (`MagneticButton`).
+- **Cyber Background**: Lightweight, interactive node constellation canvas with scanning telemetry beam.
+- **Accessibility**: Full compliance with `prefers-reduced-motion` and keyboard navigation.
 
 ---
 
 ## 🚀 Quick Start (Local Development)
 
-### 1. Install Dependencies
 ```bash
+# 1. Install dependencies
 npm install
-```
 
-### 2. Run Local Development Server
-```bash
+# 2. Run local development server
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Generate or Update Resume Files (PDF & DOCX)
-If you update `src/data/portfolioData.ts`, regenerate the synchronized PDF and DOCX files by running:
-```bash
+# 3. Test production build
+npm run build
+
+# 4. Regenerate or verify ATS resume files (PDF & DOCX)
 python scripts/generate_resume.py
-```
-To verify the extracted text integrity:
-```bash
 python scripts/verify_integrity.py
 ```
 
-### 4. Build for Production
-```bash
-npm run build
-```
-
----
-
-## 📁 Project Architecture
-
-```
-navinjith portfolio/
-├── public/
-│   ├── Navinjith_K_Resume.pdf      # ATS-friendly 1-page PDF
-│   └── Navinjith_K_Resume.docx     # Standard editable DOCX resume
-├── scripts/
-│   ├── generate_resume.py          # Synchronized PDF & DOCX generator
-│   └── verify_integrity.py         # Text extraction and fact-checking test
-├── src/
-│   ├── app/
-│   │   ├── globals.css             # Tailwind CSS & theme styling
-│   │   ├── layout.tsx              # Root layout & SEO metadata
-│   │   ├── page.tsx                # Portfolio homepage
-│   │   ├── projects/
-│   │   │   └── secureloop-ai/
-│   │   │       └── page.tsx        # Dedicated deep-dive Case Study
-│   │   └── resume/
-│   │       └── page.tsx            # Web ATS resume view & download hub
-│   ├── components/
-│   │   ├── Header.tsx              # Navigation & mobile menu
-│   │   ├── Hero.tsx                # Hero section with earned CSA banner
-│   │   ├── ExperienceSection.tsx   # RedTeam Hacker Academy internship details
-│   │   ├── ProjectsSection.tsx     # SecureLoop AI homepage feature card
-│   │   ├── SkillsSection.tsx       # SIEM, monitoring, and forensic competencies
-│   │   ├── EducationSection.tsx    # BCA Cyber Forensics & MCA in progress
-│   │   ├── CertificationsSection.tsx # EC-Council CSA, CICSA, IBM certs
-│   │   ├── AboutSection.tsx        # Personal introduction & philosophy
-│   │   ├── ContactSection.tsx      # Email copy, LinkedIn, and GitHub links
-│   │   ├── Footer.tsx              # Ethics disclaimer & navigation
-│   │   └── QuickCommandPalette.tsx # Ctrl+K command line navigator
-│   └── data/
-│       └── portfolioData.ts        # Single factual source of truth
-├── package.json
-├── tailwind.config.ts
-└── tsconfig.json
-```
-
----
-
-## 🔒 Confidentiality & Deployment Readiness
-
-- No connection strings, secret tokens, or private target addresses are exposed.
-- All code and pages compile statically with zero build errors.
+Open [http://localhost:3000](http://localhost:3000) to view the live portfolio.

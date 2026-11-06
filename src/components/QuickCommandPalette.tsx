@@ -30,14 +30,16 @@ export default function QuickCommandPalette() {
   }, [isOpen]);
 
   const commands = [
-    { cmd: "overview", label: "Executive Command Center & Hub", action: () => router.push("/") },
-    { cmd: "projects", label: "View SecureLoop AI Deep-Dive Case Study", action: () => router.push("/projects/secureloop-ai") },
-    { cmd: "experience", label: "View Cybersecurity & SOC Internship Details", action: () => router.push("/experience") },
-    { cmd: "skills", label: "View SIEM & Technical Proficiencies Matrix", action: () => router.push("/skills") },
-    { cmd: "certifications", label: "View EC-Council CSA & Credentials", action: () => router.push("/certifications") },
-    { cmd: "education", label: "View Cyber Forensics Degree & MCA Study", action: () => router.push("/education") },
-    { cmd: "resume", label: "View ATS Resume & Download PDF/DOCX", action: () => router.push("/resume") },
-    { cmd: "contact", label: "Direct Inquiries & Contact Channels", action: () => router.push("/contact") },
+    { cmd: "home", label: "Home — Cinematic Hero & Overview", action: () => router.push("/") },
+    { cmd: "about", label: "About Me — Background, Forensics & Philosophy", action: () => router.push("/about") },
+    { cmd: "projects", label: "Projects — Interactive Tooling & Prototypes Gallery", action: () => router.push("/projects") },
+    { cmd: "secureloop-ai", label: "Case Study — SecureLoop AI Security Scanner", action: () => router.push("/projects/secureloop-ai") },
+    { cmd: "skills", label: "Skills — Interactive SIEM & Security Tooling Dashboard", action: () => router.push("/skills") },
+    { cmd: "certifications", label: "Certifications — EC-Council CSA, CICSA & IBM Gallery", action: () => router.push("/certifications") },
+    { cmd: "education", label: "Education — Cyber Forensics (BCA) & MCA Timeline", action: () => router.push("/education") },
+    { cmd: "experience", label: "Experience — Cybersecurity & SOC Internship Timeline", action: () => router.push("/experience") },
+    { cmd: "resume", label: "Resume — ATS Resume Viewer & PDF/DOCX Downloads", action: () => router.push("/resume") },
+    { cmd: "contact", label: "Contact — Direct Email, LinkedIn & GitHub Channels", action: () => router.push("/contact") },
   ];
 
   const filteredCommands = commands.filter((c) =>
