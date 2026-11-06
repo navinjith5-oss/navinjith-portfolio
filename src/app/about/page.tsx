@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
@@ -133,8 +134,14 @@ export default function AboutPage() {
         <div className="lg:col-span-4 space-y-6">
           <div className="p-6 rounded-2xl bg-[#0c1322] border border-slate-800 shadow-xl space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-slate-950 border border-cyan-500/50 flex items-center justify-center font-mono font-bold text-cyan-400 text-lg shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                NK
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                <Image
+                  src="/profile.jpg"
+                  alt="Navinjith K"
+                  fill
+                  sizes="48px"
+                  className="object-cover object-top"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-white text-base">Navinjith K</h3>
