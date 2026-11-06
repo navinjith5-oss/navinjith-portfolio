@@ -81,24 +81,24 @@ export default function Hero() {
                 <span>Download Resume (PDF/DOCX)</span>
               </Link>
 
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="px-4 py-2.5 rounded-lg bg-slate-900/60 hover:bg-slate-800/80 text-slate-300 hover:text-slate-100 border border-slate-800 text-sm font-medium flex items-center gap-2 transition-all"
               >
                 <Mail className="w-4 h-4 text-slate-400" />
                 <span>Contact</span>
-              </a>
+              </Link>
             </div>
 
             {/* Direct Internship Quick-Link */}
             <div className="pt-1 text-xs text-slate-400 flex items-center gap-2">
               <span>Experience:</span>
-              <a
-                href="#experience"
+              <Link
+                href="/experience"
                 className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 decoration-cyan-500/40"
               >
                 Cybersecurity Intern at RedTeam Hacker Academy (Aug 2024 &ndash; Mar 2025) &rarr;
-              </a>
+              </Link>
             </div>
 
           </div>

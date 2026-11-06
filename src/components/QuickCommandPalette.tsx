@@ -30,13 +30,14 @@ export default function QuickCommandPalette() {
   }, [isOpen]);
 
   const commands = [
-    { cmd: "projects", label: "View SecureLoop AI Project", action: () => router.push("/projects/secureloop-ai") },
-    { cmd: "resume", label: "View ATS Resume & Downloads", action: () => router.push("/resume") },
-    { cmd: "experience", label: "Jump to Cybersecurity Internship", action: () => router.push("/#experience") },
-    { cmd: "certifications", label: "View EC-Council CSA Certification", action: () => router.push("/#certifications") },
-    { cmd: "skills", label: "View SIEM & Technical Proficiencies", action: () => router.push("/#skills") },
-    { cmd: "about", label: "About Navinjith K & Background", action: () => router.push("/#about") },
-    { cmd: "contact", label: "Contact Information & Direct Email", action: () => router.push("/#contact") },
+    { cmd: "overview", label: "Executive Command Center & Hub", action: () => router.push("/") },
+    { cmd: "projects", label: "View SecureLoop AI Deep-Dive Case Study", action: () => router.push("/projects/secureloop-ai") },
+    { cmd: "experience", label: "View Cybersecurity & SOC Internship Details", action: () => router.push("/experience") },
+    { cmd: "skills", label: "View SIEM & Technical Proficiencies Matrix", action: () => router.push("/skills") },
+    { cmd: "certifications", label: "View EC-Council CSA & Credentials", action: () => router.push("/certifications") },
+    { cmd: "education", label: "View Cyber Forensics Degree & MCA Study", action: () => router.push("/education") },
+    { cmd: "resume", label: "View ATS Resume & Download PDF/DOCX", action: () => router.push("/resume") },
+    { cmd: "contact", label: "Direct Inquiries & Contact Channels", action: () => router.push("/contact") },
   ];
 
   const filteredCommands = commands.filter((c) =>

@@ -27,24 +27,30 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
-            <Link href="/#about" className="hover:text-cyan-400 transition-colors">
-              About
+            <Link href="/" className="hover:text-cyan-400 transition-colors">
+              Overview
             </Link>
-            <Link href="/#experience" className="hover:text-cyan-400 transition-colors">
+            <Link href="/experience" className="hover:text-cyan-400 transition-colors">
               Experience
             </Link>
             <Link href="/projects/secureloop-ai" className="hover:text-cyan-400 transition-colors">
               SecureLoop AI
             </Link>
+            <Link href="/skills" className="hover:text-cyan-400 transition-colors">
+              Skills
+            </Link>
+            <Link href="/certifications" className="hover:text-cyan-400 transition-colors">
+              Certifications
+            </Link>
+            <Link href="/education" className="hover:text-cyan-400 transition-colors">
+              Education
+            </Link>
             <Link href="/resume" className="hover:text-cyan-400 transition-colors">
               ATS Resume
             </Link>
-            <a
-              href="mailto:navinjith5@gmail.com"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              navinjith5@gmail.com
-            </a>
+            <Link href="/contact" className="hover:text-cyan-400 transition-colors">
+              Contact
+            </Link>
           </div>
 
         </div>

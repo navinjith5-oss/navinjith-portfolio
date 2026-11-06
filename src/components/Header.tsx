@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Shield, Menu, X, FileText, Terminal, ExternalLink } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +20,21 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "/#about" },
-    { name: "Experience", href: "/#experience" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Skills", href: "/#skills" },
-    { name: "Education", href: "/#education" },
-    { name: "Certifications", href: "/#certifications" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Overview", href: "/" },
+    { name: "Experience", href: "/experience" },
+    { name: "SecureLoop AI", href: "/projects/secureloop-ai" },
+    { name: "Skills", href: "/skills" },
+    { name: "Certifications", href: "/certifications" },
+    { name: "Education", href: "/education" },
+    { name: "Contact", href: "/contact" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <header
@@ -58,16 +67,23 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-3 py-1.5 text-xs xl:text-sm font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-md transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`px-3 py-1.5 text-xs xl:text-sm font-medium rounded-md transition-all ${
+                    active
+                      ? "text-cyan-300 bg-cyan-950/60 border border-cyan-700/60 shadow-[0_0_10px_rgba(6,182,212,0.15)]"
+                      : "text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Action Buttons */}
@@ -89,7 +105,11 @@ export default function Header() {
             {/* Resume Link */}
             <Link
               href="/resume"
-              className="px-3.5 py-1.5 text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-400/50 rounded-md flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(6,182,212,0.1)]"
+              className={`px-3.5 py-1.5 text-xs font-medium rounded-md flex items-center gap-1.5 transition-all ${
+                pathname === "/resume"
+                  ? "bg-cyan-500 text-slate-950 font-semibold"
+                  : "bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-400/50 shadow-[0_0_12px_rgba(6,182,212,0.1)]"
+              }`}
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
@@ -120,16 +140,23 @@ export default function Header() {
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
         <div className="sm:hidden bg-[#0c1322] border-b border-slate-800 px-4 pt-3 pb-5 space-y-1 shadow-2xl">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-sm font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/60 rounded-md"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2 text-sm font-medium rounded-md ${
+                  active
+                    ? "text-cyan-300 bg-cyan-950/60 font-semibold"
+                    : "text-slate-300 hover:text-cyan-300 hover:bg-slate-800/60"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
           <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
             <Link
               href="/resume"
